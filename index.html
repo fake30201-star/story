@@ -14,21 +14,47 @@
 
 <div class="announce-bar">توصيل مجاني للطلبات فوق 1000 جنيه ✦ إرجاع مجاني خلال 14 يوم</div>
 
-<div class="header-inner">
-  <a href="index.html" class="brand">
-    أتيلي<span>يه</span>
-    <span style="font-size: 12px; font-weight: 400; color: var(--gold); margin-right: 8px;">
-      <a href="https://protofile-sepia.vercel.app/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--gold);">
-        M for MADA
+<header class="site-header">
+  <div class="header-inner">
+    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+      <a href="index.html" class="brand">أتيلي<span>يه</span></a>
+      
+      <!-- Badge M for MADA -->
+      <a href="https://protofile-sepia.vercel.app/" target="_blank" 
+         style="
+           display: inline-block;
+           background: linear-gradient(145deg, #4c1d95, #2e1065);
+           color: #e2e8f0;
+           font-size: 13px;
+           font-weight: 800;
+           padding: 6px 18px;
+           border-radius: 30px;
+           border: 1px solid rgba(139, 92, 246, 0.5);
+           box-shadow: 0 4px 16px rgba(76, 29, 149, 0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+           text-decoration: none;
+           letter-spacing: 0.5px;
+           transition: all 0.3s ease;
+           font-family: 'Cairo', sans-serif;
+         "
+         onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 24px rgba(76,29,149,0.8)'"
+         onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 16px rgba(76,29,149,0.6)'"
+      >
+        <span style="color: #c4b5fd;">✦</span> 
+        M for MADA 
+        <span style="color: #c4b5fd;">✦</span>
       </a>
-    </span>
-  </a>
-  <div class="header-actions">
-    <button class="icon-btn" id="btn-open-cart" aria-label="السلة">
-      🛍️ <span class="cart-count" id="cart-count" style="display:none;">0</span>
-    </button>
+    </div>
+    
+    <div class="header-actions">
+      <button class="icon-btn" id="btn-open-cart" aria-label="السلة">
+        🛍️ <span class="cart-count" id="cart-count" style="display:none;">0</span>
+      </button>
+    </div>
   </div>
-</div>
+  <nav class="category-nav" id="category-nav">
+    <a href="#" class="cat-pill active" data-cat="">الكل</a>
+  </nav>
+</header>
 
 <section class="hero">
   <h1>موضة تُحكى، لا تُرتدى فقط</h1>
