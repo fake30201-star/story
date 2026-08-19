@@ -180,6 +180,22 @@
   </div>
 </div>
 
+<!-- ===================== DELETE CONFIRM MODAL ===================== -->
+<div class="a-modal-overlay" id="modal-delete-order">
+  <div class="a-modal" style="max-width: 400px;">
+    <button class="modal-close" data-close="modal-delete-order">✕</button>
+    <h2 style="color: var(--a-red);">تأكيد الحذف</h2>
+    <p style="font-size: 14px; color: var(--a-ink-soft); margin: 16px 0;">
+      هل أنت متأكد من حذف هذا الطلب نهائيًا؟ <br>
+      <strong style="color: var(--a-red);">هذا الإجراء لا يمكن التراجع عنه.</strong>
+    </p>
+    <div class="modal-actions">
+      <button type="button" class="btn-cancel" data-close="modal-delete-order">إلغاء</button>
+      <button type="button" class="btn-save" id="confirm-delete-order" style="background: var(--a-red);">حذف نهائي</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script src="../js/config.js"></script>
