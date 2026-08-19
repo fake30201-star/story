@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>أتيليه ESRAA | متجر أزياء </title>
+<title>أتيليه ESRAA | متجر أزياء</title>
 <meta name="theme-color" content="#f7f2ea">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -16,45 +16,26 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+    <!-- القسم الأيسر: الاسم + البادج -->
+    <div class="header-left">
       <a href="index.html" class="brand">أتيلي<span>يه ESRAA</span></a>
       
       <!-- Badge M for MADA -->
-      <a href="https://protofile-sepia.vercel.app/" target="_blank" 
-         style="
-           display: inline-block;
-           background: linear-gradient(145deg, #4c1d95, #2e1065);
-           color: #e2e8f0;
-           font-size: 13px;
-           font-weight: 800;
-           padding: 6px 18px;
-           border-radius: 30px;
-           border: 1px solid rgba(139, 92, 246, 0.5);
-           box-shadow: 0 4px 16px rgba(76, 29, 149, 0.6), inset 0 1px 0 rgba(255,255,255,0.1);
-           text-decoration: none;
-           letter-spacing: 0.5px;
-           transition: all 0.3s ease;
-           font-family: 'Cairo', sans-serif;
-         "
-         onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 24px rgba(76,29,149,0.8)'"
-         onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 16px rgba(76,29,149,0.6)'"
-      >
-        <span style="color: #c4b5fd;">✦</span> 
-        تصميم M for MADA 
-        <span style="color: #c4b5fd;">✦</span>
+      <a href="https://protofile-sepia.vercel.app/" target="_blank" class="badge-mada">
+        <span>✦</span> تصميم M for MADA <span>✦</span>
       </a>
     </div>
     
+    <!-- السلة -->
     <div class="header-actions">
-      <button class="icon-btn" id="btn-open-cart" aria-label="السلة" style="display: flex; align-items: center; gap: 8px; background: none; border: none; cursor: pointer; font-family: 'Cairo', sans-serif;">
-        <span style="display: flex; align-items: center; gap: 6px;">
-          🛍️
-          <span style="font-size: 14px; font-weight: 600; color: var(--ink);">سلة المشتريات</span>
-        </span>
-        <span class="cart-count" id="cart-count" style="display:none; background: var(--accent); color: #fff; font-size: 10px; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">0</span>
+      <button class="icon-btn" id="btn-open-cart" aria-label="السلة">
+        🛍️
+        <span class="cart-label">سلة المشتريات</span>
+        <span class="cart-count" id="cart-count">0</span>
       </button>
     </div>
   </div>
+  
   <nav class="category-nav" id="category-nav">
     <a href="#" class="cat-pill active" data-cat="">الكل</a>
   </nav>
