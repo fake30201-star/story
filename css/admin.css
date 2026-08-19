@@ -171,3 +171,137 @@ tbody tr:hover{ background: rgba(35,32,25,0.02); }
   .main{ padding: 18px; }
   .form-grid{ grid-template-columns: 1fr; }
 }
+
+
+/* ===== RESPONSIVE - لوحة التحكم ===== */
+@media (max-width: 768px) {
+  /* السايدبار */
+  .admin-layout {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 10px 12px;
+    flex-wrap: nowrap;
+  }
+  
+  .sidebar-brand,
+  .sidebar-foot {
+    display: none;
+  }
+  
+  .nav-item {
+    width: auto;
+    white-space: nowrap;
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+  
+  /* المحتوى الرئيسي */
+  .main {
+    padding: 12px;
+  }
+  
+  .main-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  
+  .main-header h1 {
+    font-size: 18px;
+  }
+  
+  .btn-add {
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* البطاقات الإحصائية */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .stat-card {
+    padding: 12px;
+  }
+  
+  .stat-card .num {
+    font-size: 20px;
+  }
+  
+  /* الجداول */
+  .panel {
+    overflow-x: auto;
+  }
+  
+  table {
+    font-size: 12px;
+    min-width: 600px;
+  }
+  
+  thead th,
+  tbody td {
+    padding: 8px 10px;
+  }
+  
+  /* الفلتر */
+  .panel-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-input {
+    min-width: unset;
+    width: 100%;
+  }
+  
+  /* المودال */
+  .a-modal {
+    max-width: 95%;
+    padding: 16px;
+    margin: 10px;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-actions {
+    flex-wrap: wrap;
+  }
+  
+  .btn-delete-text {
+    order: 3;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  
+  .stat-card .num {
+    font-size: 17px;
+  }
+  
+  .stat-card .lbl {
+    font-size: 10px;
+  }
+  
+  .nav-item {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+}
