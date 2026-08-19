@@ -9,6 +9,7 @@
   let products = [];
   let orders = [];
   let selectedProductImageFile = null;
+  let orderToDelete = null;
 
   /* ---------------- TOAST ---------------- */
   let toastTimer = null;
@@ -387,10 +388,14 @@
         <td>${money(o.total)}</td>
         <td><span class="pill ${statusPillClass(o.status)}">${o.status}</span></td>
         <td>${new Date(o.created_at).toLocaleDateString("ar-EG")}</td>
-        <td><button class="action-btn" data-view-order="${o.id}" title="عرض">👁️</button></td>
+        <td>
+          <button class="action-btn" data-view-order="${o.id}" title="عرض">👁️</button>
+          <button class="action-btn" data-delete-order="${o.id}" title="حذف" style="color: var(--a-red);">🗑️</button>
+        </td>
       </tr>`).join("");
 
     body.querySelectorAll("[data-view-order]").forEach(b => b.addEventListener("click", () => openOrderModal(b.dataset.viewOrder)));
+    body.querySelectorAll("[data-delete-order]").forEach(b => b.addEventListener("click", () => confirmDeleteOrder(b.dataset.deleteOrder)));
   }
 
   document.getElementById("order-filter-status").addEventListener("change", renderOrdersTable);
@@ -433,6 +438,50 @@
     closeModal("modal-order");
     loadOrders();
     loadOverview();
+  });
+
+  /* ================= DELETE ORDER ================= */
+  function confirmDeleteOrder(orderId){
+    orderToDelete = orderId;
+    document.getElementById("modal-delete-order").classList.add("active");
+  }
+
+  async function deleteOrder(orderId){
+    if(!orderId) return;
+    
+    // حذف عناصر الطلب أولاً
+    const { error: itemsError } = await supabaseClient
+      .from("order_items")
+      .delete()
+      .eq("order_id", orderId);
+    
+    if(itemsError){
+      showToast("خطأ في حذف عناصر الطلب");
+      return;
+    }
+    
+    // حذف الطلب نفسه
+    const { error } = await supabaseClient
+      .from("orders")
+      .delete()
+      .eq("id", orderId);
+    
+    if(error){
+      showToast("خطأ في حذف الطلب");
+      return;
+    }
+    
+    showToast("تم حذف الطلب بنجاح");
+    closeModal("modal-delete-order");
+    loadOrders();
+    loadOverview();
+  }
+
+  document.getElementById("confirm-delete-order").addEventListener("click", () => {
+    if(orderToDelete){
+      deleteOrder(orderToDelete);
+      orderToDelete = null;
+    }
   });
 
   /* ================= MODAL HELPERS ================= */
